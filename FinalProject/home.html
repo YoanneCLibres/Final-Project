@@ -17,7 +17,7 @@
             color: #333; 
         }
 
-        .topnav {
+                .topnav {
             overflow: hidden;
             background-color: #50627A; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
@@ -38,10 +38,14 @@
             color: #333; 
         }
 
-        .column.middle {
+        .column {
             width: 90%; 
             margin: 20px auto; 
             max-width: 1200px; 
+        }
+
+        header, nav, section, article, footer {
+            margin-bottom: 20px;
         }
 
         h2 {
@@ -83,6 +87,16 @@
             line-height: 1.6; 
         }
 
+                .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: #ddd;
+        }
+
         .footer {
             background-color: #50627A; 
             color: white; 
@@ -91,47 +105,49 @@
             margin-top: 20px; 
             font-size: 14px; 
         }
-
-        .about-container {
-            clear: both; 
-            text-align: center; 
-        }
     </style>
 </head>
 <body>
 
-    <div class="topnav">
-        <a href="home.html">Home</a>
-        <a href="#">Contact</a>
-        <a href="aboutus.html">About Us</a>
-    </div>
+    <header class="topnav">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="#">Contact</a>
+            <a href="aboutus.html">About Us</a>
+        </nav>
+    </header>
 
-    <div class="column middle">
-        <h2>Empowering Minds: Quality Education</h2>
-        <div class="horizontal-line"></div>
+    <main class="column">
+        <section>
+            <h2>Empowering Minds: Quality Education</h2>
+            <div class="horizontal-line"></div>
+        </section>
 
-        <div class="about-container">
+        <article class="about-container">
             <h3>About This Website</h3>
             <div class="study">
                 <img src="images/study.png" alt="study">
             </div>
             <p>The website is designed to promote quality education by providing reliable resources that support different learning styles. This website was made to make education accessible, fun, and specifically tailored to the unique needs of each and every student. We offer a variety of tools and materials to make learning accessible for everyone and to ensure that every student thrives.</p>
-        </div>
+        </article>
 
-        <h3>What is Quality Education?</h3>
-        <p>Quality education ensures that students gain knowledge and develop essential skills like critical thinking and problem-solving. It has an inclusive environment that provides for the diverse needs of all learners. Quality education nurtures creativity, curiosity, and a lifelong passion for learning.</p>
+        <article>
+            <h3>What is Quality Education?</h3>
+            <p>Quality education ensures that students gain knowledge and develop essential skills like critical thinking and problem-solving. It has an inclusive environment that provides for the diverse needs of all learners. Quality education nurtures creativity, curiosity, and a lifelong passion for learning.</p>
+        </article>
         
-        <h3>Why is this important?</h3>
-        <p>Education is the foundation for individuals, communities, and societies, influencing our development. By prioritizing quality education, we allow students to make meaningful and significant contributions to the world. Investing in quality education is important for creating a more just and sustainable world.</p>
-    </div>
+        <article>
+            <h3>Why is this important?</h3>
+            <p>Education is the foundation for individuals, communities, and societies, influencing our development. By prioritizing quality education, we allow students to make meaningful and significant contributions to the world. Investing in quality education is important for creating a more just and sustainable world.</p>
+        </article>
+    </main>
 
-    <div class="footer">
+    <footer class="footer">
         <p>&copy; All Rights Reserved</p>
-        <p>Gall, K. (2022, April 8). Blog How to achieve a positive work, study, and life balance | Blog | Blog |. LET Training and Consultation Services. <a href="https://lettraining.com.au/work-study-and-life-balance/" style="color: white;">https://lettraining.com.au/work-study-and-life-balance/</a></p>
-    </div>
+        <p>Gall, K. (2022, April 8). Blog How to achieve a positive work, study, and life balance | Blog | Blog |. LET Training and Consultation Services. <a href="https://lettraining.com.au/work-study-and-life-balance/">https://lettraining.com.au/work-study-and-life-balance/</a></p>
+    </footer>
 
 </body>
 </html>
-
 
 

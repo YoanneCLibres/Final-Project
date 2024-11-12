@@ -17,6 +17,7 @@
             color: #333; 
         }
 
+ 
         .topnav {
             overflow: hidden;
             background-color: #50627A; 
@@ -30,15 +31,15 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            transition: background-color 0.3s; 
+            transition: background-color 0.3s, color 0.3s; 
         }
 
-        .topnav a:hover {
+                .topnav a:hover {
             background-color: #ddd; 
             color: #333; 
         }
 
-        .column.middle {
+                .content {
             width: 90%; 
             margin: 20px auto; 
             max-width: 800px; 
@@ -71,7 +72,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
         }
 
-        .section {
+        section {
             background-color: #fff; 
             padding: 20px; 
             margin-bottom: 20px; 
@@ -79,14 +80,14 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
         }
 
-        .section h3 {
+        section h3 {
             font-family: 'Times New Roman', Times, serif; 
             font-weight: normal; 
             text-align: center; 
             margin-bottom: 15px; 
         }
 
-        .section p {
+        section p {
             text-align: justify; 
             margin: 0; 
             line-height: 1.6; 
@@ -104,41 +105,43 @@
 </head>
 <body>
 
-    <div class="topnav">
-        <a href="home.html">Home</a>
-        <a href="#">Contact</a>
-        <a href="aboutus.html">About Us</a>
-    </div>
+        <header>
+        <nav class="topnav">
+            <a href="home.html">Home</a>
+            <a href="#">Contact</a>
+            <a href="aboutus.html">About Us</a>
+        </nav>
+    </header>
 
-    <div class="column middle">
+    <main class="content">
         <h2>Learn More About Us</h2>
         <div class="horizontal-line"></div>
         
-        <p class="quote">"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</p>
+        <blockquote class="quote">"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</blockquote>
 
-        <div class="grad">
+                <figure class="grad">
             <img src="images/grad.png" alt="grad"> 
-        </div>
+        </figure>
 
-        <div class="section">
+                <section>
             <h3>Vision</h3>
             <p>We envision a world where every learner has access to high-quality education that inspires curiosity, fosters creativity, and promotes lifelong learning. We believe that by providing inclusive and diverse learning opportunities, we can empower every student to reach their full potential. Our goal is to create a supportive environment where education transforms lives, communities, and the world.</p>
-        </div>
+        </section>
 
-        <div class="section">
+        <section>
             <h3>Mission</h3>
             <p>Our mission is to provide high-quality learning resources to the people. We want them to be accessible to everyone to help our vision. We are dedicated to fostering students' critical thinking while still having fun. We know that people learn differently; that is why we want to be diverse as much as possible to cater to each and every student.</p>
-        </div>
+        </section>
 
-        <div class="section">
+        <section>
             <h3>Core Values</h3>
             <p>At Empowering Minds, we are guided by our core values: Inclusivity, Innovation, Collaboration, Integrity, and Passion for Learning.</p>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <div class="footer">
+        <footer class="footer">
         <p>&copy; All Rights Reserved</p>
-    </div>
+    </footer>
 
 </body>
 </html>

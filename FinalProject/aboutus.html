@@ -4,7 +4,6 @@
     <title>Empowering Minds: Quality Education</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <style>
         * {
             box-sizing: border-box;
@@ -13,11 +12,10 @@
 
         body {
             margin: 0;
-            background-color: #f4f4f4; 
-            color: #333; 
+            background: linear-gradient(to right, #f4f4f4, #dfe9f3);
+            color: #333;
         }
 
- 
         .topnav {
             overflow: hidden;
             background-color: #50627A; 
@@ -31,115 +29,125 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            transition: background-color 0.3s, color 0.3s; 
+            transition-property: background-color, color, letter-spacing;
+            transition-duration: 1s, 2s, 1s;
+            transition-timing-function: ease-out, ease-in, ease-out;
         }
 
-                .topnav a:hover {
-            background-color: #ddd; 
-            color: #333; 
+        .topnav a:hover, .topnav a:focus {
+            background-color: #213555;
+            letter-spacing: 3px;
+            color: white;
         }
 
-                .content {
-            width: 90%; 
-            margin: 20px auto; 
-            max-width: 800px; 
+        main.column.middle {
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
         }
 
         h2 {
-            font-family: 'Times New Roman', Times, serif; 
-            font-weight: normal; 
-            text-align: center; 
-            margin: 30px 0; 
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: normal;
+            text-align: center;
+            margin: 30px 0;
         }
 
         .quote {
-            font-size: 0.9em; 
-            font-style: italic; 
-            text-align: center; 
-            margin-bottom: 20px; 
+            font-size: 0.9em;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .horizontal-line {
             width: 100%;
             height: 2px;
-            background-color: #50627A; 
-            margin: 10px 0; 
+            background-color: #50627A;
+            margin: 10px 0;
         }
 
         .grad img {
-            width: 100%; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        section {
-            background-color: #fff; 
-            padding: 20px; 
-            margin-bottom: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+        .grad img:hover {
+            transform: scale(1.2);
         }
 
-        section h3 {
-            font-family: 'Times New Roman', Times, serif; 
-            font-weight: normal; 
-            text-align: center; 
-            margin-bottom: 15px; 
+        section.section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        section p {
-            text-align: justify; 
-            margin: 0; 
-            line-height: 1.6; 
-        }
-
-        .footer {
-            background-color: #50627A; 
-            color: white; 
-            padding: 15px; 
+        section.section h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: normal;
             text-align: center;
-            margin-top: 20px; 
-            font-size: 14px; 
+            margin-bottom: 15px;
+        }
+
+        section.section p {
+            text-align: justify;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        footer.footer {
+            background-color: #50627A;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-        <header>
-        <nav class="topnav">
-            <a href="home.html">Home</a>
-            <a href="#">Contact</a>
-            <a href="aboutus.html">About Us</a>
+    <header class="topnav">
+        <nav>
+            <a href="home.html" class="smooth">Home</a>
+            <a href="#" class="smooth">Contact</a>
+            <a href="aboutus.html" class="smooth">About Us</a>
+            <a href="articles.html" class="smooth">Articles</a>
+            <a href="signin.html" class="smooth">Sign In</a>
         </nav>
     </header>
 
-    <main class="content">
+    <main class="column middle">
         <h2>Learn More About Us</h2>
         <div class="horizontal-line"></div>
-        
-        <blockquote class="quote">"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</blockquote>
 
-                <figure class="grad">
-            <img src="images/grad.png" alt="grad"> 
-        </figure>
+        <p class="quote">"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela</p>
 
-                <section>
+        <div class="grad">
+            <img src="images/grad.png" alt="graduation image">
+        </div>
+
+        <section class="section">
             <h3>Vision</h3>
             <p>We envision a world where every learner has access to high-quality education that inspires curiosity, fosters creativity, and promotes lifelong learning. We believe that by providing inclusive and diverse learning opportunities, we can empower every student to reach their full potential. Our goal is to create a supportive environment where education transforms lives, communities, and the world.</p>
         </section>
 
-        <section>
+        <section class="section">
             <h3>Mission</h3>
             <p>Our mission is to provide high-quality learning resources to the people. We want them to be accessible to everyone to help our vision. We are dedicated to fostering students' critical thinking while still having fun. We know that people learn differently; that is why we want to be diverse as much as possible to cater to each and every student.</p>
         </section>
 
-        <section>
+        <section class="section">
             <h3>Core Values</h3>
             <p>At Empowering Minds, we are guided by our core values: Inclusivity, Innovation, Collaboration, Integrity, and Passion for Learning.</p>
         </section>
     </main>
 
-        <footer class="footer">
+    <footer class="footer">
         <p>&copy; All Rights Reserved</p>
     </footer>
 

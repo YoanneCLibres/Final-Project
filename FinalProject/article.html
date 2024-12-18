@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,6 +73,8 @@
         .article-container h1 {
             color: #213555;
             font-size: 28px;
+            display: flex;
+            align-items: center;
         }
 
         .article-container p {
@@ -119,16 +120,33 @@
             margin-right: 20px;
         }
 
-        .sprite-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
+        .sprite {
+            width: 47px;
+            height: 91px;
+            background: url('images/ani.png') no-repeat;
+            animation: spriteAnimation 1s steps(4) infinite;
         }
 
-        .sprite-container img {
-            width: 33px;
-            height: 33px;
-            object-fit: cover;
+        @keyframes spriteAnimation {
+            0% {
+                background-position: -39px -27px;
+            }
+            25% {
+                background-position: -160px -35px;
+            }
+            50% {
+                background-position: -289px -27px;
+            }
+            75% {
+                background-position: -410px -35px;
+            }
+            100% {
+                background-position: -39px -27px;
+            }
+        }
+
+        .sprite-container {
+            margin-left: 20px;
         }
 
         .topics-side-by-side {
@@ -142,19 +160,18 @@
         }
 
         .topic-2 img {
-            width: 200px; 
+            width: 200px;
             height: 300px;
             object-fit: cover;
         }
 
         .topic-3 .text {
-            width: 100%; 
+            width: 100%;
         }
 
         .topic-3 img {
             display: none;
         }
-
     </style>
 </head>
 <body>
@@ -169,7 +186,11 @@
     </header>
 
     <div class="article-container">
-        <h1>Empowering Minds: Redefining Education for All</h1>
+        <h1>Empowering Minds: Redefining Education for All
+            <div class="sprite-container">
+                <div class="sprite"></div>
+            </div>
+        </h1>
         <p><em>December 17, 2024 | Blog Post</em></p>
 
         <p>Education can change lives. At Empowering Minds, we work to make sure education is accessible and impactful for all students.</p>
@@ -239,6 +260,7 @@
     </footer>
 </body>
 </html>
+
 
 
 

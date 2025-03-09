@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quality Education Quiz</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(to right, #f4f4f4, #dfe9f3);
+            color: #333;
+            text-align: center;
+        }
+
+        .topnav {
+            background-color: #50627A;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 1s ease-out, color 2s ease-in, letter-spacing 1s ease-out;
+        }
+
+        .topnav a:hover, .topnav a:focus {
+            background-color: #213555;
+            letter-spacing: 3px;
+            color: white;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 100px auto 50px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #213555;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #50627A;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option {
+            background: #e0e0e0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .option:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .correct {
+            background: #2ecc71 !important;
+            color: white;
+        }
+
+        .incorrect {
+            background: #e74c3c !important;
+            color: white;
+        }
+
+        #timer {
+            font-size: 16px;
+            color: red;
+            font-weight: bold;
+        }
+
+        .results {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #quiz {
+            display: none;
+        }
+
+        .footer {
+            background-color: #50627A;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header class="topnav">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="#">Contact</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="article.html">Articles</a>
+            <a href="#">Sign In</a>
+            <a href="quiz.html">Q&A</a>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        <h1>Quality Education Quiz</h1>
+        <p class="description">
+            Knowing about quality education in the Philippines is important because it helps us understand the challenges students and teachers face. This quiz will test your knowledge and help raise awareness. Good luck!
+        </p>
+        <button class="btn" id="startQuizBtn">Start Quiz</button>
+
+        <div id="quiz">
+            <div id="timer">Time left: <span id="timeLeft">30</span>s</div>
+            <p class="question" id="question"></p>
+            <ul class="options" id="options"></ul>
+            <button class="btn" id="prevBtn" disabled>Previous</button>
+            <button class="btn" id="nextBtn" disabled>Next</button>
+            <button class="btn" id="submitBtn" style="display: none;">Submit</button>
+        </div>
+        <div class="results" id="results"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const questions = [
+            { question: "What is one major challenge in achieving quality education in the Philippines?", options: ["Too many teachers in public schools", "Lack of school facilities and resources", "Decreasing number of students", "Overfunding of the education sector"], answer: 1 },
+            { question: "How can the Philippine government improve access to quality education?", options: ["Increase investment in school infrastructure and teacher training", "Reduce the number of teachers", "Limit education only to private schools", "Stop implementing the K-12 program"], answer: 0 },
+            { question: "Why is teacher training important in improving education quality?", options: ["It makes teachers memorize textbooks faster", "It reduces the number of students in schools", "It helps teachers develop better teaching methods and strategies", "It allows teachers to avoid giving homework"], answer: 2 },
+            { question: "What can students do to help improve education quality in their schools?", options: ["Skip classes when they feel tired", "Ignore school rules and policies", "Rely only on teachers without self-studying", "Actively participate in class and school activities"], answer: 3 },
+            { question: "How does poverty affect quality education in the Philippines?", options: ["Many students struggle to afford school supplies and transportation", "It encourages students to focus more on education", "It provides equal opportunities for all learners", "It has no impact on education at all"], answer: 0 }
+        ];
+
+        let currentQuestion = 0, score = 0, timer, timeLeft = 30, selectedAnswer = null;
+
+        function startQuiz() {
+            document.getElementById("startQuizBtn").style.display = "none";
+            document.querySelector(".description").style.display = "none";
+            document.getElementById("quiz").style.display = "block";
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestion >= questions.length) return showResults();
+
+            const questionData = questions[currentQuestion];
+            document.getElementById("question").textContent = questionData.question;
+            document.getElementById("options").innerHTML = questionData.options.map((opt, i) =>
+                `<li class="option" onclick="selectOption(${i}, this)">${opt}</li>`
+            ).join("");
+
+            document.getElementById("prevBtn").disabled = currentQuestion === 0;
+            document.getElementById("nextBtn").style.display = currentQuestion < questions.length - 1 ? "block" : "none";
+            document.getElementById("submitBtn").style.display = currentQuestion === questions.length - 1 ? "block" : "none";
+            document.getElementById("nextBtn").disabled = true;
+            selectedAnswer = null;
+            startTimer();
+        }
+
+        function selectOption(index, element) {
+            document.querySelectorAll(".option").forEach(opt => opt.classList.remove("selected", "correct", "incorrect"));
+            element.classList.add("selected");
+
+            switch (index === questions[currentQuestion].answer) {
+                case true: element.classList.add("correct"); break;
+                default: element.classList.add("incorrect");
+            }
+
+            selectedAnswer = index;
+            document.getElementById("nextBtn").disabled = false;
+        }
+
+        function nextQuestion() { currentQuestion++; loadQuestion(); }
+        function prevQuestion() { currentQuestion--; loadQuestion(); }
+        function showResults() { document.getElementById("quiz").style.display = "none"; document.getElementById("results").innerHTML = `<h2>Score: ${score}/${questions.length}</h2>`; document.getElementById("results").style.display = "block"; }
+
+        document.getElementById("startQuizBtn").addEventListener("click", startQuiz);
+        document.getElementById("prevBtn").addEventListener("click", prevQuestion);
+        document.getElementById("nextBtn").addEventListener("click", nextQuestion);
+        document.getElementById("submitBtn").addEventListener("click", showResults);
+    </script>
+</body>
+</html>
+

@@ -30,9 +30,7 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            transition-property: background-color, color, letter-spacing;
-            transition-duration: 1s, 2s, 1s;
-            transition-timing-function: ease-out, ease-in, ease-out;
+            transition: background-color 1s ease-out, color 2s ease-in, letter-spacing 1s ease-out;
         }
 
         .topnav a:hover, .topnav a:focus {
@@ -93,14 +91,19 @@
         .footer {
             background-color: #50627A; 
             color: white; 
-            padding: 30px;  
+            padding: 20px;  
             text-align: center;
             margin-top: 20px; 
             font-size: 14px; 
+            display: flex;
+            justify-content: center; 
+            align-items: center;
         }
 
         .footer p {
             margin: 0;
+            text-align: center; 
+            width: 100%; 
         }
     </style>
 </head>
@@ -108,11 +111,12 @@
 
     <header class="topnav">
         <nav>
-            <a href="home.html" class="smooth">Home</a>
-            <a href="#" class="smooth">Contact</a>
-            <a href="aboutus.html" class="smooth">About Us</a>
-            <a href="file:///C:/Users/Yoanne%20Libres/Documents/FinalProject/article.html" class="smooth">Articles</a>
-            <a href="signin.html" class="smooth">Sign In</a>
+            <a href="home.html">Home</a>
+            <a href="#">Contact</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="article.html">Articles</a>
+            <a href="#">Sign In</a>
+            <a href="quiz.html">Q&A</a> 
         </nav>
     </header>
 

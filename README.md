@@ -1,1 +1,2 @@
 # Final-Project
+The quiz is part of the website's "Q&A" section, focusing on Quality Education in the Philippines. Users start by clicking "Start Quiz," which hides the introduction and reveals the first multiple-choice question. The quiz covers key education topics, including challenges, government programs, and student participation. Answer choices change color to show correctness, and users navigate with "Next," while the last question replaces it with "Submit." At the end, the final score is shown, emphasizing the importance of quality education.

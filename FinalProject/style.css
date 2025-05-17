@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, #f4f4f4, #dfe9f3);
+    color: #333;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #50627A;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition-property: background-color, color, letter-spacing;
+    transition-duration: 1s, 2s, 1s;
+    transition-timing-function: ease-out, ease-in, ease-out;
+}
+
+.topnav a:hover,
+.topnav a:focus {
+    background-color: #213555;
+    letter-spacing: 3px;
+    color: white;
+}
+
+.article-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px 40px;  /* horizontal padding so content doesn't stick to edges */
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #213555;
+}
+
+p {
+    font-weight: normal;
+    color: #578FCA; /* color for "At Empowering Minds..." */
+}
+
+/* This class is only for "Education can change lives." text */
+.color-education {
+    color: #3674B5;
+    font-weight: bold;
+}
+
+/* Logo image smaller size */
+.logo-image {
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+footer.footer {
+    background-color: #50627A;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background: #50627A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #213555;
+}
+

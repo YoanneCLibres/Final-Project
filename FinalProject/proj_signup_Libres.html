@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Empowering Minds - Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        .required-asterisk {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <a href="home.html">Home</a>
+        <a href="proj_signup_Libres.html">Sign Up</a>
+        <a href="proj_profile_Libres.html">Profile</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="article.html">Articles</a>
+        <a href="quiz.html">Q&A</a> 
+    </nav>
+
+    <div class="article-container">
+        <header style="text-align: center;">
+            <h1>Empowering Minds</h1>
+            <img src="images/logo.png" alt="Logo" class="logo-image" />
+        </header>
+
+        <p style="text-align:center; font-weight: bold;">
+            At Empowering Minds, we work to make sure education is accessible and impactful for all students. 
+            <span class="color-education">Education can change lives.</span>
+        </p>
+
+        <form id="signupForm">
+            <label>
+                First Name<span class="required-asterisk">*</span> 
+                <input type="text" id="firstName" />
+                <span class="error"></span>
+            </label><br /><br />
+
+            <label>
+                Last Name<span class="required-asterisk">*</span> 
+                <input type="text" id="lastName" />
+                <span class="error"></span>
+            </label><br /><br />
+
+            <label>
+                Sex<span class="required-asterisk">*</span><br />
+                <input type="radio" name="sex" value="Male" /> Male
+                <input type="radio" name="sex" value="Female" /> Female
+                <input type="radio" name="sex" value="Prefer not to say" /> Prefer not to say
+                <span class="error"></span>
+            </label><br /><br />
+
+            <label>
+                Email Address<span class="required-asterisk">*</span> 
+                <input type="email" id="email" />
+                <span class="error"></span>
+            </label><br /><br />
+
+            <label>
+                Password<span class="required-asterisk">*</span> 
+                <input type="password" id="password" />
+                <span class="error"></span>
+            </label><br /><br />
+
+            <label>
+                Contact Number (optional) 
+                <input type="text" id="contact" />
+            </label><br /><br />
+
+            <label>
+                Why you're supporting our campaign<span class="required-asterisk">*</span><br />
+                <textarea id="reason"></textarea>
+                <span class="error"></span>
+            </label><br /><br />
+
+            <button type="submit">Join the Community</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        © 2024 Empowering Minds. All rights reserved.
+    </footer>
+
+    <script>
+        const form = document.getElementById('signupForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const firstNameInput = document.getElementById('firstName');
+            const lastNameInput = document.getElementById('lastName');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const reasonInput = document.getElementById('reason');
+            const sexRadios = document.getElementsByName('sex');
+
+            const errorSpans = document.querySelectorAll('.error');
+            errorSpans.forEach(span => span.textContent = '');
+
+            let valid = true;
+
+            if (!firstNameInput.value.trim()) {
+                firstNameInput.nextElementSibling.textContent = 'required';
+                valid = false;
+            }
+
+            if (!lastNameInput.value.trim()) {
+                lastNameInput.nextElementSibling.textContent = 'required';
+                valid = false;
+            }
+
+            let sexSelected = false;
+            for (const radio of sexRadios) {
+                if (radio.checked) {
+                    sexSelected = true;
+                    break;
+                }
+            }
+            if (!sexSelected) {
+                sexRadios[sexRadios.length - 1].nextElementSibling.textContent = 'required';
+                valid = false;
+            }
+
+            if (!emailInput.value.trim()) {
+                emailInput.nextElementSibling.textContent = 'required';
+                valid = false;
+            }
+
+            if (!passwordInput.value.trim()) {
+                passwordInput.nextElementSibling.textContent = 'required';
+                valid = false;
+            }
+
+            if (!reasonInput.value.trim()) {
+                reasonInput.nextElementSibling.textContent = 'required';
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            localStorage.setItem('firstName', firstNameInput.value.trim());
+            localStorage.setItem('lastName', lastNameInput.value.trim());
+            localStorage.setItem('email', emailInput.value.trim());
+            localStorage.setItem('sex', Array.from(sexRadios).find(r => r.checked).value);
+            localStorage.setItem('reason', reasonInput.value.trim());
+
+            window.location.href = 'proj_profile_Libres.html';
+        });
+    </script>
+</body>
+</html>
+
+

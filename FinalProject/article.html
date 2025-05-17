@@ -29,9 +29,7 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            transition-property: background-color, color, letter-spacing;
-            transition-duration: 1s, 2s, 1s;
-            transition-timing-function: ease-out, ease-in, ease-out;
+            transition: background-color 1s ease-out, color 2s ease-in, letter-spacing 1s ease-out;
         }
 
         .topnav a:hover, .topnav a:focus {
@@ -70,11 +68,21 @@
             text-align: left;
         }
 
+ 
+        .join-us {
+            font-size: 28px;
+            font-weight: 800;
+            color: #213555;
+            margin: 0 0 15px 0;
+        }
+
         .article-container h1 {
             color: #213555;
             font-size: 28px;
             display: flex;
             align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .article-container p {
@@ -121,32 +129,21 @@
         }
 
         .sprite {
-            width: 47px;
-            height: 91px;
-            background: url('images/ani.png') no-repeat;
+            width: 28px;
+            height: 48px;
+            background: url('images/ani.png') no-repeat 0 0;
+            background-size: 112px 48px;
             animation: spriteAnimation 1s steps(4) infinite;
+            display: inline-block;
         }
 
         @keyframes spriteAnimation {
-            0% {
-                background-position: -39px -27px;
+            from {
+                background-position: 0 0;
             }
-            25% {
-                background-position: -160px -35px;
+            to {
+                background-position: -112px 0;
             }
-            50% {
-                background-position: -289px -27px;
-            }
-            75% {
-                background-position: -410px -35px;
-            }
-            100% {
-                background-position: -39px -27px;
-            }
-        }
-
-        .sprite-container {
-            margin-left: 20px;
         }
 
         .topics-side-by-side {
@@ -172,25 +169,52 @@
         .topic-3 img {
             display: none;
         }
+
+        
+        .sprite-container img.sprite1,
+        .sprite-container img.sprite3 {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .sprite-container img.sprite2 {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .sprite-container img.sprite4 {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .sprite-container {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            align-items: center;
+            height: 60px;
+        }
     </style>
 </head>
 <body>
     <header class="topnav">
         <nav>
-       <a href="home.html">Home</a>
-        <a href="#">Contact</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="article.html">Articles</a>
-        <a href="#">Sign In</a>
-        <a href="quiz.html">Q&A</a>
+            <a href="home.html">Home</a>
+            <a href="proj_signup_Libres.html">Sign Up</a>
+            <a href="proj_profile_Libres.html">Profile</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="article.html">Articles</a>
+            <a href="quiz.html">Q&A</a>
         </nav>
     </header>
 
     <div class="article-container">
-        <h1>Empowering Minds: Redefining Education for All
-            <div class="sprite-container">
-                <div class="sprite"></div>
-            </div>
+        <h1>
+            Empowering Minds: Redefining Education for All
+            <div class="sprite"></div>
         </h1>
         <p><em>December 17, 2024 | Blog Post</em></p>
 
@@ -200,7 +224,6 @@
             <div class="image">
                 <img src="images/logo.png" alt="Logo" class="logo-image">
             </div>
-
             <div class="text">
                 <h2>Why Quality Education Matters</h2>
                 <p>Education gives people the skills to succeed. Studies show that 420 million people could escape poverty if they finished secondary education. It helps build a better society by encouraging critical thinking, creativity, and problem-solving.</p>
@@ -215,7 +238,6 @@
                     <p>Inclusive education means that all students, regardless of their background or ability, learn together. This approach improves social skills, fosters teamwork, and enhances academic performance.</p>
                     <p>Despite its benefits, challenges remain, such as a lack of trained teachers and limited resources. Many organizations are working to overcome these obstacles.</p>
                 </div>
-
                 <div class="image">
                     <img src="images/book.png" class="book-portrait" alt="Book Image">
                 </div>
@@ -236,13 +258,16 @@
 
         <div class="topic-box">
             <div class="text">
-                <h2>Join Us</h2>
+                <!-- Changed this line only -->
+                <h2 class="join-us">Join Us</h2>
+
                 <div class="sprite-container">
-                    <img src="images/sprite1.png" alt="Sprite 1">
-                    <img src="images/sprite2.png" alt="Sprite 2">
-                    <img src="images/sprite3.png" alt="Sprite 3">
-                    <img src="images/sprite4.png" alt="Sprite 4">
+                    <img src="images/sprite1.png" alt="Sprite 1" class="sprite1" />
+                    <img src="images/sprite2.png" alt="Sprite 2" class="sprite2" />
+                    <img src="images/sprite3.png" alt="Sprite 3" class="sprite3" />
+                    <img src="images/sprite4.png" alt="Sprite 4" class="sprite4" />
                 </div>
+
                 <p>Whether you're a student, educator, or lifelong learner, Empowering Minds is here to support you. Together, we can create a world where education is a right, not a privilege.</p>
                 <p>Stay connected for updates, resources, and stories. Subscribe to our newsletter or follow us on social media!</p>
             </div>
@@ -257,7 +282,8 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; All Rights Reserved</p>
+        <p>&copy; 2024 Empowering Minds. All rights reserved.</p>
     </footer>
 </body>
 </html>
+
